@@ -1,0 +1,58 @@
+.vendingWrapper {
+  top: 0px;
+  position: fixed;
+  // width: 100vw;
+  height: 100vh;
+  display: flex;
+  background: white;
+
+  button {
+    position: absolute;
+    right: 276px;
+    top: 490px;
+    width: 80px;
+    height: 120px;
+    opacity: 0.3;
+
+    &:hover {
+      border: 15px solid green
+    }
+  }
+
+  .vendingBackground {
+    // height: 150%;
+    height: 1400px;
+    width: 1230px;
+    margin: -100px auto;
+  }
+
+  .itemsWrapper {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    top: 240px;
+    left: calc(23%);
+    width: 40%;
+    margin: -100px auto;
+
+    @for $i from 1 through 4 {
+      &.line-#{$i} {
+        top: calc(240px + #{$i * 150px});
+      }
+    }
+
+    .itemWrapper {
+      max-width: 30px;
+      background-color: white;
+
+      img {
+        max-width: 30px;
+        max-height: 40px;
+        &:hover {
+          transform: scale(1.3);
+        }
+      }
+
+    }
+  }
+}
