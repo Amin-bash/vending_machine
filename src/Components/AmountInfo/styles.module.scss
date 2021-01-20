@@ -1,0 +1,21 @@
+.moneyInfo {
+  z-index: 10;
+  position: relative;
+  top: 133px;
+  left: 832px;
+  color: #03bc03;
+  font-weight: bold;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  padding:10px;
+  border-radius: 6px;
+  width: 160px;
+  min-height: 130px;
+  background: #cccccc;
+
+  :last-child {
+    color: red;
+    font-size: 12px;
+  }
+}

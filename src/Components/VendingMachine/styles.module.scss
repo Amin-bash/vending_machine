@@ -7,12 +7,19 @@
   background: white;
 
   button {
+    // position: absolute;
+    // right: 276px;
+    // top: 490px;
+    // width: 80px;
+    // height: 120px;
+    // opacity: 0.3;
     position: absolute;
-    right: 276px;
-    top: 490px;
-    width: 80px;
-    height: 120px;
+    right: 273px;
+    top: 485px;
+    width: 90px;
+    height: 117px;
     opacity: 0.3;
+    border-radius: 6px;
 
     &:hover {
       border: 15px solid green

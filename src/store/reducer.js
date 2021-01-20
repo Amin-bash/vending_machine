@@ -32,7 +32,11 @@ export default function reducer(state = initialState, action) {
 
         if(state.keyPadInput.length === 2) {
           const [i,j] = newState.keyPadInput.split("").map(key => parseInt(key));
-          const desiredProduct = newState.items[i][j-1];
+
+          let desiredProduct;
+          if(newState.items[i]) {
+            desiredProduct = newState.items[i][j-1];
+          }
   
           if(desiredProduct && desiredProduct.itemCount > 0 && desiredProduct.itemPrice <= newState.amountEntered) {
             desiredProduct.itemCount -= 1;
@@ -61,11 +65,17 @@ export default function reducer(state = initialState, action) {
       } else {
         newState.keyPadInput += action.payload.value;
       } 
+
+      setTimeout(() => {
+        newState.errorMessage = "";
+        newState.successMessage = "";
+      }, 20);
   
       return {
         ...newState,
       }
     default:
       return state
-  }
+    }
+    
 }
