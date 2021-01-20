@@ -44,15 +44,6 @@
     .itemWrapper {
       max-width: 30px;
       background-color: white;
-
-      img {
-        max-width: 30px;
-        max-height: 40px;
-        &:hover {
-          transform: scale(1.3);
-        }
-      }
-
     }
   }
 }

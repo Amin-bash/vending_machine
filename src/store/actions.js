@@ -1,4 +1,4 @@
-import { ADD_AMOUNT, SET_ITEMS, TOGGLE_KEYPAD_STATE } from './constants';
+import { ADD_AMOUNT, SET_ITEMS, TOGGLE_KEYPAD_STATE, KEYPAD_BUTTON_PUSH } from './constants';
 
 export const addAmount = (amount) => ({
   type: ADD_AMOUNT,
@@ -20,3 +20,10 @@ export const toggleKeypad = (value) => ({
     value
   }
 });
+
+export const keypadButtonClick = (value) => ({
+  type: KEYPAD_BUTTON_PUSH,
+  payload: {
+    value
+  }
+})

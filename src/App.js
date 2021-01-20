@@ -8,7 +8,7 @@ import Available from './Components/Available';
 import BtnMoneyBack from './Components/BtnMoneyBack';
 
 import getData from './api';
-import { addAmount, setItems, toggleKeypad } from './store/actions';
+import { addAmount, setItems, toggleKeypad, keypadButtonClick } from './store/actions';
 
 import logo from './img/react.png';
 import twix from './img/twix.jpg';
@@ -128,10 +128,13 @@ class Apps extends Component {
 
 const App = () => {
   const dispatch = useDispatch();
-  const { amountEntered, items, keyPadActive } = useSelector((store) => ({
+  const { amountEntered, items, keyPadActive, keyPadInput, errorMessage, successMessage } = useSelector((store) => ({
     amountEntered: store.amountEntered,
     items: store.items,
-    keyPadActive: store.keyPadActive
+    keyPadActive: store.keyPadActive,
+    keyPadInput: store.keyPadInput,
+    errorMessage: store.errorMessage,
+    successMessage: store.successMessage,
   }));
 
   React.useEffect(() => {
@@ -139,12 +142,17 @@ const App = () => {
   }, [dispatch])
 
 
-  const itemColumns = [...Array(5).keys()].map(column => items.map(item => <Item {...item} />))
+  const itemColumns = items.map(column => column.map(item => <Item {...item} />));
   return (
     <div className="App">
-      {keyPadActive && <KeyPad/>}
+      {keyPadActive && <KeyPad onClosePad={() => dispatch(toggleKeypad(false))} onButtonClick={(value) => dispatch(keypadButtonClick(value))}/>}
       <VendingMachine itemColumns={itemColumns} onOpenKeyPad={() => dispatch(toggleKeypad(true))}/>
-      {amountEntered}
+      <div style={{zIndex: 10000000, color: "black", position: "relative"}}>
+        {amountEntered}-
+        {keyPadInput}-
+        {successMessage}-
+        {errorMessage}
+      </div>
       <Wallet onClickMoney={(money) => dispatch(addAmount(money))} />
     </div>
   );

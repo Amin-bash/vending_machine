@@ -9,9 +9,13 @@ const Item = ({ itemId, itemName, itemPrice, itemCount, imgUrl }) => {
 				<div  className={styles.productImage + ' ' + styles[`order-${idx}`]} >
 					{/* <img className={styles.productImage + ' ' + styles[`order-${idx}`]} src={imgUrl} /> */}
 					<img src={imgUrl} />
-          <p className={styles.price}>{itemPrice}</p>
+          
 				</div>
 			))}
+      <div className={styles.productStats}>
+        <p className={styles.price}>{itemPrice} RON</p>
+        <p className={styles.price}>COD:{itemId}</p>
+      </div>
 		</div>
 	);
 };
