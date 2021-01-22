@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './styles.module.scss';
 
 const AmountInfo = (props) => {
+
 	return (
 		<div className={styles.moneyInfo}>
 			<span>Amount: {props.amountEntered}</span>

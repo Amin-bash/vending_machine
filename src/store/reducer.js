@@ -1,4 +1,4 @@
-import { ADD_AMOUNT, SET_ITEMS, TOGGLE_KEYPAD_STATE, KEYPAD_BUTTON_PUSH} from './constants';
+import { ADD_AMOUNT, SET_ITEMS, TOGGLE_KEYPAD_STATE, KEYPAD_BUTTON_PUSH, REMOVE_OUTPUT_MESSAGE} from './constants';
 
 const initialState = {
   items: [],
@@ -64,16 +64,18 @@ export default function reducer(state = initialState, action) {
         newState.keyPadInput = newState.keyPadInput.slice(0, newState.keyPadInput.length -1);
       } else {
         newState.keyPadInput += action.payload.value;
-      } 
-
-      setTimeout(() => {
-        newState.errorMessage = "";
-        newState.successMessage = "";
-      }, 20);
+      }
   
       return {
         ...newState,
       }
+    case REMOVE_OUTPUT_MESSAGE:
+      return {
+        ...state,
+        errorMessage: '',
+        successMessage: ''
+      }
+   
     default:
       return state
     }

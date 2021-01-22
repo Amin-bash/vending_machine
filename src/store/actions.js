@@ -1,4 +1,4 @@
-import { ADD_AMOUNT, SET_ITEMS, TOGGLE_KEYPAD_STATE, KEYPAD_BUTTON_PUSH } from './constants';
+import { ADD_AMOUNT, SET_ITEMS, TOGGLE_KEYPAD_STATE, KEYPAD_BUTTON_PUSH, REMOVE_OUTPUT_MESSAGE } from './constants';
 
 export const addAmount = (amount) => ({
   type: ADD_AMOUNT,
@@ -26,4 +26,8 @@ export const keypadButtonClick = (value) => ({
   payload: {
     value
   }
-})
+});
+
+export const removeOutputMessage = () => ({
+  type: REMOVE_OUTPUT_MESSAGE
+});
